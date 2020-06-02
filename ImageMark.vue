@@ -1,6 +1,6 @@
 <template>
   <div class="image-mark">
-    <img src="http://static.doveaz.xyz/img/2d.jpg" alt="" @click="handleBoardClick" />
+    <img :src="imageSrc" alt="" @click="handleBoardClick" />
     <ul class="point-list">
       <li
         v-for="point in pointList"
@@ -27,6 +27,10 @@ export default {
       default() {
         return {}
       }
+    },
+    imageSrc:{
+      type:String,
+      required:true
     }
   },
   data() {
@@ -38,10 +42,8 @@ export default {
       if (uni) {
         const query = uni.createSelectorQuery().in(this)
         query
-          .select('.draw')
+          .select('.image-mark')
           .boundingClientRect(el => {
-            console.log(el)
-            console.log(e)
             point = {
               x: ((e.detail.x - el.left) / el.width) * 100,
               y: ((e.detail.y - el.top) / el.height) * 100,
