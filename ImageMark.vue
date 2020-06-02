@@ -70,7 +70,6 @@ export default {
 <style lang="less">
 .image-mark {
   position: relative;
-  border: 1px solid #f006;
   width: 100%;
 
   img {
