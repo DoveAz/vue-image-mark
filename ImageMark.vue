@@ -44,7 +44,7 @@ export default {
   methods: {
     handleBoardClick(e) {
       let point = {};
-      if (typeof variable == "undefined") {
+      if (typeof uni == "undefined") {
         point = {
           x: (e.layerX / e.target.width) * 100,
           y: (e.layerY / e.target.height) * 100,
