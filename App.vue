@@ -1,29 +1,32 @@
 <template>
   <div>
-    <Draw :pointList="pointList" @pointClick="pointClick" @add="handleAdd"></Draw>
+    <ImageMark
+      imageSrc="http://static.doveaz.xyz/img/2d.jpg"
+      :pointList="pointList"
+      @pointClick="pointClick"
+      @add="handleAdd"
+    ></ImageMark>
   </div>
 </template>
 <script>
-import Draw from './Draw'
+import ImageMark from "./ImageMark";
 
 export default {
-  components: {Draw},
+  components: { ImageMark },
   data() {
     return {
-      pointList: []
-    }
+      pointList: [],
+    };
   },
   methods: {
-    handleAdd(point){
-      console.log(111)
-      this.pointList.push(point)
+    handleAdd(point) {
+      console.log(111);
+      this.pointList.push(point);
     },
-    pointClick(){
-      console.log(222)
-    }
-  }
-}
+    pointClick() {
+      console.log(222);
+    },
+  },
+};
 </script>
-<style lang="less">
-
-</style>
+<style lang="less"></style>

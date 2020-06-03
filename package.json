@@ -1,6 +1,6 @@
 {
   "name": "vue-image-mark",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "main": "ImageMark.vue",
   "devDependencies": {
     "less": "^3.11.2",

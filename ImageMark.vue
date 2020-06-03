@@ -6,7 +6,12 @@
         v-for="point in pointList"
         :key="point.id"
         :class="point.class"
-        :style="{ top: point.y + '%', left: point.x + '%', ...pointStyle, backgroundColor: point.color }"
+        :style="{
+          top: point.y + '%',
+          left: point.x + '%',
+          ...pointStyle,
+          backgroundColor: point.color,
+        }"
         @click="handlePointClick(point)"
       >
         {{ point.id }}
@@ -16,56 +21,56 @@
 </template>
 <script>
 export default {
-  name: 'ImageMark',
+  name: "ImageMark",
   props: {
     pointList: {
       type: Array,
-      required: true
+      required: true,
     },
     pointStyle: {
       type: Object,
       default() {
-        return {}
-      }
+        return {};
+      },
     },
-    imageSrc:{
-      type:String,
-      required:true
-    }
+    imageSrc: {
+      type: String,
+      required: true,
+    },
   },
   data() {
-    return {}
+    return {};
   },
   methods: {
     handleBoardClick(e) {
-      let point = {}
-      if (uni) {
-        const query = uni.createSelectorQuery().in(this)
-        query
-          .select('.image-mark')
-          .boundingClientRect(el => {
-            point = {
-              x: ((e.detail.x - el.left) / el.width) * 100,
-              y: ((e.detail.y - el.top) / el.height) * 100,
-              id: this.pointList.length + 1
-            }
-            this.$emit('add', point)
-          })
-          .exec()
-      } else {
+      let point = {};
+      if (typeof variable == "undefined") {
         point = {
           x: (e.layerX / e.target.width) * 100,
           y: (e.layerY / e.target.height) * 100,
-          id: this.pointList.length + 1
-        }
-        this.$emit('add', point)
+          id: this.pointList.length + 1,
+        };
+        this.$emit("add", point);
+      } else {
+        const query = uni.createSelectorQuery().in(this);
+        query
+          .select(".image-mark")
+          .boundingClientRect((el) => {
+            point = {
+              x: ((e.detail.x - el.left) / el.width) * 100,
+              y: ((e.detail.y - el.top) / el.height) * 100,
+              id: this.pointList.length + 1,
+            };
+            this.$emit("add", point);
+          })
+          .exec();
       }
     },
     handlePointClick(point) {
-      this.$emit('pointClick', point)
-    }
-  }
-}
+      this.$emit("pointClick", point);
+    },
+  },
+};
 </script>
 <style lang="less">
 .image-mark {
