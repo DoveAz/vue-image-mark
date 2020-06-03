@@ -1,5 +1,20 @@
 ![](http://static.doveaz.xyz/img/20200602172637.png)
 
+#### install
+
+```javascript
+import ImageMark from "./ImageMark";
+
+...
+components: { ImageMark },
+...
+
+```
+
+
+
+
+
 
 
 props
