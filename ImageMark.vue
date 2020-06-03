@@ -86,7 +86,6 @@ export default {
     margin: 0;
 
     li {
-      z-index: 100;
       user-select: NONE;
       position: absolute;
       /* prettier-ignore */
